@@ -36,6 +36,6 @@ fn main() {
   //v.capacity() give how many element can store when we push element capacity increse usesx2
 
   println!("Capacity : {}", v.capacity());
-  // error handling
+  
 
 }

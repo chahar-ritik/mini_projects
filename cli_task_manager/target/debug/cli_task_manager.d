@@ -1,0 +1,1 @@
+/Users/mr.chahar/Rustacean/mini_projects/cli_task_manager/target/debug/cli_task_manager: /Users/mr.chahar/Rustacean/mini_projects/cli_task_manager/src/main.rs

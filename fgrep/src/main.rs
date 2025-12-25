@@ -30,7 +30,7 @@ struct Config {
 impl Config{
     // in place of new we make build method because new are not expected to fail
     fn build(args : &[String]) -> Result<Config,&'static str>{
-      if args < 3{
+      if args.len() < 3{
           return Err("not enough arguments")
       } 
       let search = args[1].clone();

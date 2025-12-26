@@ -12,6 +12,8 @@ fn main(){
 
       println!("Searching for {}",config.search_string);
     println!("In file {}",config.file_name);
+   
+
 
  if let Err(e) =  fgrep::run(config){
     println!("Application error: {e}");

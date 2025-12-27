@@ -9,12 +9,18 @@ pub struct Config {
 
 impl Config {
     // in place of new we make build method because new are not expected to fail
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
-        let search = args[1].clone();
-        let file = args[2].clone();
+    pub fn build(mut args: impl Iterator < Item = String>) -> Result<Config, &'static str> {
+         args.next();
+
+        let search = match args.next() {
+             Some(x)=> x,
+             None => return Err("MISSING SEARCH STRING")
+        };
+        let file = match args.next() {
+             Some(x)=> x,
+             None => return Err("MISSING FILE PATH")
+        };
+
         //IGNORE_CASE=1 cargo run -- to myfile.txt
         //Here we are using IGNOR_CASE to set variable value true by 1 or empty
         let ignore_case = env::var("IGNORE_CASE").is_ok();

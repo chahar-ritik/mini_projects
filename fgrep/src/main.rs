@@ -3,9 +3,9 @@ use std::env;
 use std::process;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+   // let args: Vec<String> = env::args().collect();
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         /* eprintln! this is a standard error that not like normal print as it standard output
          if we run command cargo run > output.txt that redirect output to this file instead of screen
          and this command has error as no argument supplied but standart output will not show it on screen */

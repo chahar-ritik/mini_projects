@@ -48,26 +48,21 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 fn search<'a>(search_string: &str, content: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in content.lines() {
-        if line.contains(search_string) {
-            results.push(line);
-        }
-    }
-    results
+   
+   content
+   .lines()
+   .filter(|line| line.contains(search_string))
+   .collect()
 }
 
 fn search_case_insensitive<'a>(search_string: &str, content: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
+   
     let search_string = search_string.to_lowercase();
 
-    for line in content.lines() {
-        if line.to_lowercase().contains(&search_string) {
-            results.push(line);
-        }
-    }
-    results
+    content
+   .lines()
+   .filter(|line| line.to_lowercase().contains(&search_string))
+   .collect()
 }
 
 #[cfg(test)]
